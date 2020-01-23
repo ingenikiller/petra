@@ -1,0 +1,19 @@
+FIC:C:\Projets\Outils\workspace\Petra\generation\exit\testDev.sql
+ENT:
+TIT:Test dev
+SUJ:123456789
+FNT:
+
+RVA:codsoc=~societe
+RVA:datmod=to_char(SYSDATE,'YYYYMMDD')
+RVA:utimod='OSI_SQL'
+RVA:sigdep=&depot
+RVA:sigtie=&depot
+RPA:~societe=1
+PMO:REQUETE_VALORISEE=N
+PMO:SCHEMA_BASE=O
+
+DDI:
+TAB:PARAV
+CLS:codsoc=~societe and codfct='STRPV'
+FDI:

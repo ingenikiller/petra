@@ -1,0 +1,72 @@
+FIC:D:\[PERSO]\workspace\DPE\generation\exit\exempleSortie.sql
+ENT:
+TIT:Mantis 3714
+SUJ:integ ADTR
+FNT:
+
+///:valeur de remplacement
+RVA:codsoc=~societe
+RVA:datmod=to_char(SYSDATE,'YYYYMMDD')
+RVA:utimod='OSI_SQL'
+///:valeur de paramètre des requêtes
+RPA:~societe=15
+
+///: requête sql
+ISD:update ut_uti set eshs='ES' where codsoc=1 and uti='GNC';
+
+COM:--commentaire
+
+///:bloc d'insertion
+DDI:
+TAB:ut_bv_def
+CLS:codsoc=~societe and bv_name in ('L_DSK_PAL_F', 'L_DSK_PAL_RET_E', 'I_DSK_PAL')
+FDI:
+
+///:extraction portail
+DFO:
+NFO:I_EMB_F
+MOD:PORTAIL
+FFO:
+
+///:extraction d'une fonction portail et sa PEV
+DFO:
+NFO:I_AFAM_F
+MOD:FONCTION
+PEV:AFAM
+FFO:
+
+///:extraction d'une PEV
+DFO:
+NFO:AFAM
+MOD:EDITION
+PEV:AFAM
+FFO:
+
+///:extraction d'une PEV d'édition
+DFO:
+NFO:AFAME1
+MOD:EDITION
+PEV:AFAME1
+FFO:
+
+///:habilitations: les chapitres et fonctions peuvent être fournies en listes séparées par des virgules
+DHB:
+MOD:FCT
+PFM:EGX-LOG
+CCH:EGX-LOGIST
+FCT:I_PRO_F
+FHB:
+
+
+DPP:
+COD:SEQORA
+FCT:FRGCDE
+FDP:
+
+
+
+DPP:
+COD:CODCPT
+FCT:PFRG
+FDP:
+

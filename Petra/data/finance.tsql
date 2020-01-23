@@ -1,0 +1,82 @@
+FIC:D:\[PERSO]\workspace\DPE\generation\exit\Liens comptables.sql
+ENT:
+TIT:paramétrage Liens comptables
+SUJ:
+FNT:
+
+RVA:codsoc=~societe
+RVA:datmod=to_char(SYSDATE,'YYYYMMDD')
+RVA:utimod='OSI_SQL'
+RPA:~societe=18
+
+COM: -- Paramétrage Métiers pour les BRII
+
+DDI:
+TAB:p_1pp
+CLS:codsoc=~societe and p_1ppcpt IN ('41190000', '46731013', '46737013', '46733013', '46738013', '46718013', '46728013', '46719013', '46730013')
+FDI:
+
+DDI:
+TAB:p_1ja
+CLS:codsoc=~societe and p_1jacod in ('FBN', 'FBR', 'FTN', 'FTR','BRN', 'BRR', 'TEN', 'TER')
+FDI:
+
+DDI:
+TAB:p_1nu
+CLS:codsoc=~societe and p_1nucod in ('FBN', 'FBR', 'FTN','FTR', 'BRN', 'BRR', 'TEN', 'TER')
+FDI:
+
+COM: --  Pré-requis des guides comptables, analytiques, TVA, frais, tax
+
+COM: --  Pour BRII
+DDI:
+TAB:p_1gc
+CLS:codsoc=~societe and p_1gctyp = 1 and p_1gccod in ('FBN013', 'FBR013', 'FTN013', 'FTR013', 'BRN013', 'BRR013', 'TEN013', 'TER013')
+FDI:
+
+COM: --  PPE sur les fonctions de validation Métiers
+COM: --  Pour les BRII
+ISD: delete from parav where codsoc=~societe and codfct in ('CRMBN', 'CRMBR', 'CRMTN', 'CRMTR', 'FFGBN', 'FFGBR', 'FFGTN', 'FFGTR') and codpar like ('JN%');
+
+DDI:
+TAB:param 
+CLS:codpar in ('JNVCRB', 'JNVCRT', 'JNVFFG')
+FDI:
+
+DDI:
+TAB:parav 
+CLS:codsoc=~societe and codfct in ('CRMBN', 'CRMBR', 'CRMTN', 'CRMTR', 'FFGBN', 'FFGBR', 'FFGTN', 'FFGTR') and codpar in ('ALIZN1', 'ECRPCE', 'GENANA', 'GENECR')
+FDI:
+
+DDI:
+TAB:parav 
+CLS:codsoc=~societe and codfct in ('CRMBN', 'CRMBR') and codpar in ('JNVCRB')
+FDI:
+
+DDI:
+TAB:parav 
+CLS:codsoc=~societe and codfct in ('CRMTN', 'CRMTR') and codpar in ('JNVCRT')
+FDI:
+
+DDI:
+TAB:parav 
+CLS:codsoc=~societe and codfct in ('FFGBN', 'FFGBR', 'FFGTN', 'FFGTR') and codpar in ('JNVFFG')
+FDI:
+
+COM: --  Pour appairage
+
+COM: --  Pour vente emballage
+COM: --  VFAMV1
+
+
+COM: --  Paramétrage des couples Qui/qoi
+
+DDI:
+TAB:cqq 
+CLS:codsoc=~societe and typcot in ('PCI', 'ANA', 'TVA', 'FRD', 'TAX')
+FDI:
+
+DDI:
+TAB:pci
+CLS:codsoc=~societe and typcot in ('PCI', 'ANA', 'TVA', 'FRD', 'TAX')
+FDI:

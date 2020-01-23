@@ -1,0 +1,32 @@
+FIC:D:\[PERSO]\workspace\DPE\generation\exit\exempleSortie.sql
+ENT:
+TIT:Mantis 3714
+SUJ:integ ADTR
+FNT:
+
+///:valeur de remplacement
+RVA:codsoc=~societe
+RVA:datmod=to_char(SYSDATE,'YYYYMMDD')
+RVA:utimod='OSI_SQL'
+///:valeur de parametre des requetes
+RPA:~societe=15
+///:PMO:REQUETE_VALORISEE=O
+///: requete sql
+ISD:update ut_uti set eshs='ES' where codsoc=1 and uti='GNC';
+
+COM:--commentaire
+
+DUP:
+NUP:DEGTAR
+CUP:ELTLIST
+COM:uprc test
+EAC:O
+FUP:
+
+
+///:DTB:
+///:MOD:COMPLET
+///:TYP:TTU
+///:TBL:006
+///:FTB:
+

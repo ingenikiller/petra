@@ -1,0 +1,41 @@
+FIC:D:\[PERSO]\workspace\genereSQLOrders\generation\sortie.sql
+ENT:
+TIT:Mantis 12345
+SUJ:Traitements des écarts
+FNT:
+RVA:codsoc=&societe
+RVA:datmod=to_char(SYSDATE,'YYYYMMDD')
+RVA:utimod='OSI_PL'
+RPA:&societe=11
+
+COM:--maj uti
+ISD:UPDATE set eshs='ES' WHERE codsoc=&societe AND uti='GNC';
+
+///COM:--table ut_config
+///DBL:
+///TAB:ut_config
+///FBL:
+
+COM:-- tbl tev
+DDI:
+TAB:TBL
+CLS:codsoc=&societe and codtbl='tev'
+FDI:
+
+///RPA:&societe=111
+
+COM:-- tbl 001
+DDI:
+TAB:tbl
+CLS:codsoc=&societe and codtbl='001'
+FDI:
+
+DDI:
+TAB:EVE
+CLS:codsoc=&societe and numeve=11
+FDI:
+
+///DDI:
+///TAB:TVA
+///CLS:codsoc=&societe and tautva4=0
+///FDI:
