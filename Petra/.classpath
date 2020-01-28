@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Projets/Outils/workspace/Petra/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/o.jean-ext/git/GitPetra/Petra/lib/ojdbc6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

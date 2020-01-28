@@ -10,7 +10,7 @@ import com.genere.orders.tools.TableTools;
 public class Traitement extends AbstractParser{
 
 	//version PeTRA
-	public static final String version="1.3.5";
+	public static final String version="1.3.6";
 	
 	public String fichierEntree;
 	

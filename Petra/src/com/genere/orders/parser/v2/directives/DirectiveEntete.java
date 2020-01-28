@@ -20,17 +20,16 @@ public class DirectiveEntete extends AbstractDirective {
 	@Override
 	public boolean execute() throws IOException {
 		FichierEcritureSingleton fileOut = FichierEcritureSingleton.INSTANCE;
-		fileOut.ecrire("/**************************************************************************************************");
-		fileOut.ecrire("\t" + titre + ": " + sujet);
-		fileOut.ecrire("");
-		fileOut.ecrire("");
-		fileOut.ecrire("Création le: " + Utilitaires.dateDuJour());
-		fileOut.ecrire("Auteur: "
+		fileOut.ecrire("-- ------------------------------------------------------------------------------------------------");
+		fileOut.ecrire("-- \t" + titre + ": " + sujet);
+		fileOut.ecrire("--");
+		fileOut.ecrire("--");
+		fileOut.ecrire("-- Création le: " + Utilitaires.dateDuJour());
+		fileOut.ecrire("-- Auteur: "
 				+ WSConfigurer.INSTANCE.getProperty("utilisateur"));
-		fileOut.ecrire("");
-		fileOut.ecrire("Version PeTRA:" + Traitement.version);
-		fileOut.ecrire("****************************************************************************************************/\n");
-
+		fileOut.ecrire("-- ");
+		fileOut.ecrire("-- Version PeTRA:" + Traitement.version);
+		fileOut.ecrire("-- ------------------------------------------------------------------------------------------------");
 		return true;
 	}
 
